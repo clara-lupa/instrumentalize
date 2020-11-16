@@ -1,0 +1,7 @@
+<div class="container"></div>
+  <%= simple_form_for [@instrument, @rental] do |r| %>
+  <%= r.input :start, as: :date, html5: true  %>
+  <%= r.input :end, as: :date, html5: true %>
+  <%= r.submit %>
+  <% end %>
+</div>
