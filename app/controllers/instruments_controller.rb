@@ -32,6 +32,13 @@ class InstrumentsController < ApplicationController
     authorize @instrument
   end
 
+  def update
+    @instrument = Instrument.find(params[:id])
+    authorize @instrument
+    @instrument.update(instrument_params)
+    redirect_to instrument_path(@instrument)
+  end
+
   def destroy
     @instrument = Instrument.find(params[:id])
     @instrument.destroy
@@ -44,5 +51,4 @@ class InstrumentsController < ApplicationController
   def instrument_params
     params.require(:instrument).permit(:name, :description, :price_per_day)
   end
-
 end

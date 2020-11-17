@@ -1,4 +1,4 @@
-<h1> view </h1>
+<h1> All instruments </h1>
 <ul>
   <% @instruments.each do |instrument| %>
   <li>
@@ -10,7 +10,8 @@
     <% end %>
   </li>
 <% end %>
-</ul
+</ul>
+
 <% if policy(Instrument).create? %>
   <%= link_to "New instrument", new_instrument_path %>
 <% end %>
