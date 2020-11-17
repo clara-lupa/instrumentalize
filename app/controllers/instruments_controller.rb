@@ -1,5 +1,6 @@
 class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @instruments = policy_scope(Instrument).order(created_at: :desc)
   end
@@ -16,7 +17,7 @@ class InstrumentsController < ApplicationController
 
   def create
     @instrument = Instrument.new(instrument_params)
-    # @instrument.name = params[:name]
+    @instrument.name = params[:instrument][:name]
     @instrument.user = current_user
     authorize @instrument
     if @instrument.save!
@@ -44,7 +45,4 @@ class InstrumentsController < ApplicationController
     params.require(:instrument).permit(:name, :description, :price_per_day)
   end
 
-  def show
-    @instrument = Instrument.find(params[:id])
-  end
 end
