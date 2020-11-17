@@ -10,8 +10,8 @@ class RentalsController < ApplicationController
     @instrument = Instrument.find(params[:instrument_id])
     @rental.user = current_user
     @rental.instrument = @instrument
-    @rental.start = params[:rental][:start]
-    @rental.end = params[:rental][:end]
+    @rental.start_date = params[:rental][:start_date]
+    @rental.end_date = params[:rental][:end_date]
     if @rental.save
       redirect_to instruments_path
     else
