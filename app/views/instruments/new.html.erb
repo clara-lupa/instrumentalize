@@ -1,0 +1,10 @@
+
+
+<% if policy(Instrument).create? %>
+  <%= simple_form_for @instrument do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price_per_day %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
