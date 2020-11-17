@@ -1,4 +1,16 @@
 <h1> view </h1>
-<% @instruments.each do |instrument| %>
-  <%= instrument.name %>
+<ul>
+  <% @instruments.each do |instrument| %>
+  <li>
+    <%= instrument.name %>
+    <% if policy(instrument).edit? %>
+      <%= link_to "Update", edit_instrument_path(instrument) %>
+      <%= link_to "🗑", instrument_path(instrument), method: :delete %>
+    <% end %>
+  </li>
 <% end %>
+</ul
+<% if policy(Instrument).create? %>
+  <%= link_to "New instrument", new_instrument_path %>
+<% end %>
+
