@@ -1,11 +1,11 @@
 class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :instrument
-  validates :start, :end, :user, :instrument, presence: true
+  validates :start_date, :end_date, :user, :instrument, presence: true
   # the following validation is not working !! fix it !
-  # validate  :startdate_enddate?
+  validate  :end_date_must_be_after_start_date
 
-  # def startdate_enddate?
-  #   :start < :end
-  # end
+  def end_date_must_be_after_start_date
+    errors.add(:end_date, "must be after the start.") if end_date <= start_date
+  end
 end

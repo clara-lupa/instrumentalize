@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+PASSWORD = "123456"
+INSTRUMENTS = %w[guitar double-base e-base trumpet violin viola clarinet]
+
+puts "creating a test user to log in"
+User.create(email: "test@test.com", password: PASSWORD)
+
+puts "creating 10 users with one instrument each"
+10.times do
+  email = Faker::Internet.email
+  user = User.create(email: email, password: PASSWORD)
+  Instrument.create(
+    name: INSTRUMENTS.sample,
+    description: Faker::Lorem.sentence,
+    price_per_day: rand(100),
+    user: user
+    )
+end
+puts "created 10 users with instruments"
+

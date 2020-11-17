@@ -43,4 +43,8 @@ class InstrumentsController < ApplicationController
   def instrument_params
     params.require(:instrument).permit(:name, :description, :price_per_day)
   end
+
+  def show
+
+  end
 end
