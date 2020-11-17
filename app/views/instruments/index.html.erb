@@ -3,6 +3,7 @@
   <% @instruments.each do |instrument| %>
   <li>
     <%= instrument.name %>
+    <%= link_to "Details", instrument_path(instrument) %>
     <% if policy(instrument).edit? %>
       <%= link_to "Update", edit_instrument_path(instrument) %>
       <%= link_to "🗑", instrument_path(instrument), method: :delete %>
