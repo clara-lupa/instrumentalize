@@ -4,7 +4,11 @@
   <p><%= @instrument.description %></p>
   <p>price per day: <%= @instrument.price_per_day %>€</p>
   <p>owner: <%= @instrument.user.email %></p>
-  <%= link_to "rent this instrument", new_instrument_rental_path(@instrument), class:'button-pink' %>
+  <% if current_user == @instrument.user %>
+    <%= link_to "edit this instrument", edit_instrument_path(@instrument), class:'button-pink' %>
+  <% else %>
+    <%= link_to "rent this instrument", new_instrument_rental_path(@instrument), class:'button-pink' %>
+  <% end %>
   <%= link_to "all instruments", instruments_path, class:'button-pink' %>
 </div>
 
