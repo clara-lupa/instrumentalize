@@ -1,17 +1,32 @@
 <h1> view </h1>
-<ul>
+
+<div class="cards">
   <% @instruments.each do |instrument| %>
-  <li>
-    <%= instrument.name %>
-    <%= link_to "Details", instrument_path(instrument) %>
-    <% if policy(instrument).edit? %>
-      <%= link_to "Update", edit_instrument_path(instrument) %>
-      <%= link_to "🗑", instrument_path(instrument), method: :delete %>
-    <% end %>
-  </li>
-<% end %>
-</ul
+    <div class="card-instrument">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-instrument-infos">
+        <div>
+          <h2>instrument.name</h2>
+          <p><%= link_to "Details", instrument_path(instrument) %></p>
+        </div>
+        <div>
+          <% if policy(instrument).edit? %>
+            <p><%= link_to "Update", edit_instrument_path(instrument) %></p>
+            <p><%= link_to "Remove", instrument_path(instrument), method: :delete %></p>
+          <% else %>
+            <p><%= instrument.price_per_day %></p>
+          <% end %>
+        </div>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-instrument-user avatar-bordered" />
+    </div>
+  <% end %>
+</div>
+
+
 <% if policy(Instrument).create? %>
   <%= link_to "New instrument", new_instrument_path %>
 <% end %>
+
+
+
 
