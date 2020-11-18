@@ -5,10 +5,6 @@ class InstrumentPolicy < ApplicationPolicy
     end
   end
 
-  def my_instruments?
-    return true
-  end
-
   def show?
     return true
   end
