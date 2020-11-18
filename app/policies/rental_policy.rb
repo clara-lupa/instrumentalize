@@ -1,4 +1,5 @@
 class RentalPolicy < ApplicationPolicy
+
   class Scope < Scope
     def resolve
       scope.all
@@ -20,4 +21,5 @@ class RentalPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
 end

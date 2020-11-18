@@ -3,7 +3,6 @@ class RentalsController < ApplicationController
     @rental = Rental.new
     @instrument = Instrument.find(params[:instrument_id])
     authorize @rental
-
   end
 
   def create
@@ -21,15 +20,22 @@ class RentalsController < ApplicationController
     end
   end
 
-   def edit
+  def edit
+    @instrument = Instrument.find(params[:instrument_id])
     @rental = Rental.find(params[:id])
-    authorize @rental
+    authorize @rental    
   end
 
   def update
+    @instrument = Instrument.find(params[:instrument_id])
     @rental = Rental.find(params[:id])
+    @rental.start_date = params[:rental][:start_date]
+    @rental.end_date = params[:rental][:end_date]
     authorize @rental
-    @rental.update(rental_params)
-    redirect_to instrument_path(@instrument)
+    if @rental.save
+      redirect_to instruments_path
+    else
+      render :edit
+    end
   end
 end
