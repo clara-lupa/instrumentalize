@@ -20,7 +20,7 @@ class InstrumentsController < ApplicationController
     @instrument.name = params[:instrument][:name]
     @instrument.user = current_user
     authorize @instrument
-    if @instrument.save!
+    if @instrument.save
       redirect_to instrument_path(@instrument)
     else
       render :new

@@ -1,4 +1,4 @@
-class InstrumentPolicy < ApplicationPolicy
+class RentalPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -10,7 +10,7 @@ class InstrumentPolicy < ApplicationPolicy
   end
 
   def create?
-    return user
+    return user unless @instrument.user == user
   end
 
   def update?
