@@ -10,7 +10,7 @@ class InstrumentPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    return user
   end
 
   def update?
