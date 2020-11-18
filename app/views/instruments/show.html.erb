@@ -1,5 +1,8 @@
 <div class="container">
   <h1>Instrument Details</h1>
+    <% if @instrument.photo.attached? %>
+      <%= cl_image_tag @instrument.photo.key, height: 150, width: 150, crop: :fill %>
+    <% end %>
   <h2><%= @instrument.name %></h2>
   <p><%= @instrument.description %></p>
   <p>price per day: <%= @instrument.price_per_day %>€</p>
