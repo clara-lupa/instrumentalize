@@ -10,6 +10,7 @@ class InstrumentsController < ApplicationController
     authorize @instrument
   end
 
+
   def new
     @instrument = Instrument.new
     authorize @instrument
