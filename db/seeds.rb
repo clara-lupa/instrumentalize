@@ -11,6 +11,9 @@ require 'faker'
 PASSWORD = "123456"
 INSTRUMENTS = %w[guitar double-base e-base trumpet violin viola clarinet]
 
+User.destroy_all
+Instrument.destroy_all
+
 puts "creating a test user to log in"
 User.create(email: "test@test.com", password: PASSWORD)
 

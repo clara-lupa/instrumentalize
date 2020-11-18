@@ -1,6 +1,10 @@
-<h1>Instrument Details</h1>
-<h2><%= @instrument.name %></h2>
-<p><%= @instrument.description %></p>
-<p><%= @instrument.price_per_day %></p>
-<p><%= @instrument.user.email %></p>
+<div class="container">
+  <h1>Instrument Details</h1>
+  <h2><%= @instrument.name %></h2>
+  <p><%= @instrument.description %></p>
+  <p>price per day: <%= @instrument.price_per_day %>€</p>
+  <p>owner: <%= @instrument.user.email %></p>
+  <%= link_to "rent this instrument", new_instrument_rental_path(@instrument), class:'button-pink' %>
+  <%= link_to "all instruments", instruments_path, class:'button-pink' %>
+</div>
 
