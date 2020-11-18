@@ -11,7 +11,7 @@ class RentalPolicy < ApplicationPolicy
   end
 
   def create?
-    return user unless @instrument.user == user
+    return user
   end
 
   def update?
