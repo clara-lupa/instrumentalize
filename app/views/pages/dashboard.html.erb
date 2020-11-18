@@ -1,0 +1,20 @@
+<h1>Dashboard</h1>
+
+<p>Logged in as <%= @user.email %></p>
+
+<h2>My instruments</h2>
+
+<ul>
+  <% @instruments.each do |instrument| %>
+    <li> <%= instrument.name %> </li>
+  <% end %>
+</ul>
+
+
+<h2>My rented instruments</h2>
+
+<ul>
+  <% @rentals_as_renter.each do |rental| %>
+    <li><%= rental.instrument.name %>, from <%= rental.start_date %> until <%= rental.end_date %></li>
+  <% end %>
+</ul>
