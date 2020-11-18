@@ -1,0 +1,22 @@
+$paradise-pink: #e83f6fff;
+$myrtle-green: #307473ff;
+$davys-grey: #495057ff;
+
+.button-pink {
+color: $paradise-pink;
+border: 1px solid $paradise-pink;
+box-sizing: border-box;
+border-radius: 12px;
+padding: 12px;
+background-color: white;
+}
+
+.button-pink:hover {
+  color: $myrtle-green;
+  opacity: .5;
+  text-decoration: none;
+}
+
+.text-color {
+  color: $paradise-pink;
+}

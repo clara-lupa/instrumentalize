@@ -1,5 +1,6 @@
-<h1> All instruments </h1>
-<ul>
+<div class="container">
+  <h1 class="text-color"> All instruments </h1>
+  <ul>
   <% @instruments.each do |instrument| %>
   <li>
     <%= instrument.name %>
@@ -9,10 +10,10 @@
       <%= link_to "🗑", instrument_path(instrument), method: :delete %>
     <% end %>
   </li>
-<% end %>
-</ul>
+  <% end %>
+  </ul>
 
-<% if policy(Instrument).create? %>
-  <%= link_to "New instrument", new_instrument_path %>
-<% end %>
-
+  <% if policy(Instrument).create? %>
+  <%= link_to "New instrument", new_instrument_path, class:'button-pink' %>
+  <% end %>
+</div>
