@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :instruments do
     resources :rentals, only: [:new, :create, :edit, :update, :destroy]
   end
+
+  get "dashboard", to: "pages#dashboard", as: :dashboard
 end
