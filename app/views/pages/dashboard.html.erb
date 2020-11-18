@@ -7,7 +7,9 @@
 
   <ul>
     <% @instruments.each do |instrument| %>
-      <li> <%= instrument.name %> </li>
+      <li> <%= instrument.name %> <%= link_to "Details" , instrument_path(instrument) %>
+        <%= link_to "Edit", edit_instrument_path(instrument) %>
+      </li>
     <% end %>
   </ul>
 
