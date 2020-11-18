@@ -1,8 +1,9 @@
 .card-instrument {
   overflow: hidden;
-  background: $gainsboro;
+  background: $myrtle-green;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+  color: $cultured;
 }
 
 .card-instrument:hover{
@@ -44,9 +45,10 @@
   width: 40px;
 }
 
-.card_link {
-  display: block;
-}
+
+
+
+
 
 
 
