@@ -1,0 +1,24 @@
+
+<div class="card-instrument">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-instrument-infos">
+    <div>
+      <h2><%= instrument.name.capitalize %></h2>
+      <p>Distance: *km</p>
+    </div>
+    <p class="card-instrument-infos">
+      <% if policy(instrument).edit? %>
+        <%= link_to "Update", edit_instrument_path(instrument) %> |
+        <%= link_to "Remove", instrument_path(instrument), method: :delete %>
+      <% else %>
+          <p>Rate: $<%= instrument.price_per_day %></p>
+      <% end %>
+    </p>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+
+ <!-- card instrument partial -->
+
+
+

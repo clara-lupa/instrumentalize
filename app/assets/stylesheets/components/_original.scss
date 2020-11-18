@@ -1,35 +1,30 @@
-.card-instrument {
+.card-trip {
   overflow: hidden;
-  background: $gainsboro;
+  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 5px;
 }
 
-.card-instrument:hover{
-  transform: scale(1.025);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-}
 
-.card-instrument > img {
+.card-trip > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-instrument h2 {
+.card-trip h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-instrument p {
+.card-trip p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
 
-.card-instrument .card-instrument-infos {
+.card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -37,16 +32,15 @@
   position: relative;
 }
 
-.card-instrument-infos .card-instrument-user {
+.card-trip-infos .card-trip-user {
   position: absolute;
   right: 16px;
   top: -20px;
   width: 40px;
 }
 
-.card_link {
-  display: block;
+a,
+a:hover {
+  text-decoration: none;
+  color: inherit;
 }
-
-
-

@@ -1,0 +1,20 @@
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= instrument.name.capitalize %></h2>
+      <p>Distance: *km</p>
+    </div>
+    <h2 class="card-trip-pricing">
+      <% if policy(instrument).edit? %>
+        <%= link_to "Update", edit_instrument_path(instrument) %> |
+        <%= link_to "Remove", instrument_path(instrument), method: :delete %>
+      <% else %>
+          <p>Rate: $<%= instrument.price_per_day %></p>
+      <% end %>
+    </h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+
+
