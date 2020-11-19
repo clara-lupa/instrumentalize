@@ -2,7 +2,6 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    # => <ActionController::Parameters {"query"=>"viola", "location"=>"Hermannstr. 48, Berlin", "commit"=>"Search", "controller"=>"instruments", "action"=>"index"} permitted: false>
     @location = params[:location]
     if params[:query].present?
       @instruments = policy_scope(Instrument).where("name ILIKE ?", "%#{params[:query]}%")
@@ -19,7 +18,6 @@ class InstrumentsController < ApplicationController
     end
 
     @instruments = @instruments.sort_by{ |instrument| instrument.distance(@location) }
-    console
   end
 
   def show
@@ -65,6 +63,6 @@ class InstrumentsController < ApplicationController
   private
 
   def instrument_params
-    params.require(:instrument).permit(:name, :description, :price_per_day, :photo)
+    params.require(:instrument).permit(:name, :description, :price_per_day, :address, :photo)
   end
 end
