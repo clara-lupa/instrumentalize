@@ -12,11 +12,21 @@ User.destroy_all
 Instrument.destroy_all
 
 users = []
-clara = User.create(email: 'clara@music.com', password: '123456')
-magda = User.create(email: 'magda@music.com', password: '123456')
-igor = User.create(email: 'igor@music.com', password: '123456')
-dan = User.create(email: 'dan@music.com', password: '123456')
+clara = User.new(email: 'clara@music.com', password: '123456')
+clara.photo.attach(io:URI.open("https://avatars3.githubusercontent.com/u/71439281?v=4"), filename:"clara.jpg")
+clara.save
+magda = User.new(email: 'magda@music.com', password: '123456')
+magda.photo.attach(io:URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1601888580/sna5wlbfxgfmevyvsw2a.jpg"), filename:"magda.jpg")
+magda.save
+igor = User.new(email: 'igor@music.com', password: '123456')
+igor.photo.attach(io:URI.open("https://avatars2.githubusercontent.com/u/69688651?v=4"), filename:"igor.jpg")
+igor.save
+dan = User.new(email: 'dan@music.com', password: '123456')
+dan.photo.attach(io:URI.open("https://avatars1.githubusercontent.com/u/71282045?v=4"), filename:"dan.jpg")
+dan.save
 [clara, magda, igor, dan].each { |member| users << member }
+
+
 
 instruments = [
   {
@@ -44,7 +54,7 @@ instruments = [
     name: "amp", description: "Totally amped for your gig!", price_per_day: "20", photo:"https://images.unsplash.com/photo-1546518449-3826f84350e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
   },
   {
-    name: "keyboard", description: "The keys to your next gig.", price_per_day: "22", photo:"https://images.unsplash.com/photo-1598653222000-6b7b7a552625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+    name: "keyboard", description: "The keys for your next gig.", price_per_day: "22", photo:"https://images.unsplash.com/photo-1598653222000-6b7b7a552625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
   },
   {
     name: "ukelele", description: "Aloha, hipster!", price_per_day: "8", photo:"https://images.unsplash.com/photo-1541447554742-4b7eff548fe1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
@@ -59,9 +69,9 @@ instruments.each do |instrument|
     description: instrument[:description],
     price_per_day: instrument[:price_per_day],
     user: users.sample)
-    i.photo.attach(io:URI.open(instrument[:photo]), filename:"file.jpg")
-    i.save
-  end
+  i.photo.attach(io:URI.open(instrument[:photo]), filename:"file.jpg")
+  i.save
+end
 
   puts 'Seeds finished!'
 

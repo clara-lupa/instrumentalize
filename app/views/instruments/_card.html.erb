@@ -1,6 +1,6 @@
 
 <div class="card-instrument">
-  <%= cl_image_tag instrument.photo.key, width: 250, height: 200, crop: :fill %>
+  <%= cl_image_tag instrument.photo.key %>
   <div class="card-instrument-infos">
     <div>
       <h2><%= instrument.name.capitalize %></h2>
@@ -14,7 +14,7 @@
           <p>Rate: €<%= instrument.price_per_day %></p>
       <% end %>
     </p>
-    <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1601888580/sna5wlbfxgfmevyvsw2a.jpg" alt="Magdalena Barthofer" class="card-trip-user avatar-bordered" />
+    <%= cl_image_tag user.photo.key, class:"avatar-bordered" %>
   </div>
 </div>
 
