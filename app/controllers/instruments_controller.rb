@@ -3,6 +3,14 @@ class InstrumentsController < ApplicationController
 
   def index
     @instruments = policy_scope(Instrument).order(created_at: :desc)
+    @markers = @instruments.geocoded.map do |instrument|
+      {
+        lat: instrument.latitude,
+        lng: instrument.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { instrument: instrument })
+      }
+    end
+    console
   end
 
   def show
