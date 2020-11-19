@@ -1,6 +1,6 @@
-<h1>Edit rental</h1>
+<div class="container">
+  <h1>Edit rental</h1>
 
-<div class="container"></div>
   <%= simple_form_for [@instrument, @rental] do |r| %>
   <%= r.input :start_date, as: :date, html5: true  %>
   <%= r.input :end_date, as: :date, html5: true %>
