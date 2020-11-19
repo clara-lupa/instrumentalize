@@ -1,0 +1,20 @@
+.search-form {
+  height: 50px !important;
+  .button-pink {
+    height: 100%;
+    padding: unset;
+    border-radius: 0 4px 4px 0;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .form-group {
+    height: 100% !important;
+    border-right: 0;
+  }
+  .form-control {
+    height: 100%;
+  }
+  .algolia-places {
+    height: 100%;
+  }
+}
