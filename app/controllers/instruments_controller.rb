@@ -18,7 +18,6 @@ class InstrumentsController < ApplicationController
 
   def create
     @instrument = Instrument.new(instrument_params)
-    @instrument.name = params[:instrument][:name]
     @instrument.user = current_user
     authorize @instrument
     if @instrument.save
@@ -50,6 +49,6 @@ class InstrumentsController < ApplicationController
   private
 
   def instrument_params
-    params.require(:instrument).permit(:name, :description, :price_per_day)
+    params.require(:instrument).permit(:name, :description, :price_per_day, :photo)
   end
 end

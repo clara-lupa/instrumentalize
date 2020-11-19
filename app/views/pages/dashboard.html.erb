@@ -2,7 +2,9 @@
   <h1>Dashboard</h1>
 
   <p>Logged in as <%= @user.email %></p>
-
+  <% if @user.photo.attached? %>
+    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <h2>My instruments</h2>
 
   <ul>
