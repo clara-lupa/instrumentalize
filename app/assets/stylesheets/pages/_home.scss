@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+body {
+  background-image: url("homepage-background2.jpg");
+  background-size: cover;
+  background-position: center;
+//   background: linear-gradient(180deg, rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)) );
+}
+
+h1  {
+  color: white;
+}
+
+.container {
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 200px;
+  right: 150px;
+}
