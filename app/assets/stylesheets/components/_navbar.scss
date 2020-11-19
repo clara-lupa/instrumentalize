@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $paradise-pink;
   opacity: .7;
   height: 66px;
 }
@@ -11,8 +11,4 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
-}
-
-.navbar-light {
-  background-color: $pink;
 }
