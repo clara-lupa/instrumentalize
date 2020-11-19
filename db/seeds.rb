@@ -10,6 +10,7 @@ require 'faker'
 
 PASSWORD = "123456"
 INSTRUMENTS = %w[guitar double-base e-base trumpet violin viola clarinet]
+STREETS =["Hermannstrasse", "Kienitzer Strasse", "Karl-Marx-Strasse", "Sonnenallee", "Nogatstrasse"]
 
 User.destroy_all
 Instrument.destroy_all
@@ -22,9 +23,11 @@ puts "creating 10 users with one instrument each"
   email = Faker::Internet.email
   user = User.create(email: email, password: PASSWORD)
   Instrument.create(
-    name: INSTRUMENTS.sample,
+    name: INSTRUMENTS.sample.capitalize,
     description: Faker::Lorem.sentence,
     price_per_day: rand(100),
+    # address: Faker::Address.full_address,
+    address: "#{STREETS.sample} #{rand(60)}, Berlin, Germany",
     user: user
     )
 end
