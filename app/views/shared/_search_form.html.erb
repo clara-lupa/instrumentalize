@@ -7,7 +7,8 @@
   <%= text_field_tag :location,
     params[:location],
     class: "form-control",
-    placeholder: "Where are you at?"
+    placeholder: "Where are you at?",
+    required: true
   %>
   <%= submit_tag "Search", class: "button-pink" %>
 <% end %>
