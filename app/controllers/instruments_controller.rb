@@ -10,14 +10,12 @@ class InstrumentsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { instrument: instrument })
       }
     end
-    console
   end
 
   def show
     @instrument = Instrument.find(params[:id])
     authorize @instrument
   end
-
 
   def new
     @instrument = Instrument.new
