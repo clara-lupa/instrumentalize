@@ -5,6 +5,8 @@ class User < ApplicationRecord
   # the rentals below refer to rentals where the user is the renter
   has_many :rentals, dependent: :destroy
 
+  has_one_attached :photo
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
