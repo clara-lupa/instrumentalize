@@ -1,7 +1,8 @@
-class InstrumentPolicy < ApplicationPolicy
+class RentalPolicy < ApplicationPolicy
+
   class Scope < Scope
     def resolve
-      scope.where.not(user: user)
+      scope.all
     end
   end
 
@@ -20,4 +21,5 @@ class InstrumentPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
 end

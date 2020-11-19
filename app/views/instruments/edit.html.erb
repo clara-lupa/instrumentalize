@@ -1,11 +1,11 @@
-<h1>Add a new instrument</h1>
+<h1>Edit Instrument</h1>
 
-<% if policy(Instrument).create? %>
+<% if policy(@instrument).edit? %>
   <%= simple_form_for @instrument do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :price_per_day %>
     <%= f.input :photo, as: :file %>
-    <%= f.submit class: 'button-pink' %>
+    <%= f.submit class:'button-pink' %>
   <% end %>
 <% end %>

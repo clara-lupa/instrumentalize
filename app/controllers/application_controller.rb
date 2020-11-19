@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:home, :index, :show]
 
+  # this part allows additional parameters in the user controller created by devise
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:photo])
+  end
+
   include Pundit
 
   # Pundit: white-list approach.
@@ -20,5 +27,4 @@ class ApplicationController < ActionController::Base
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
-
 end

@@ -15,7 +15,9 @@ class ApplicationPolicy
   end
 
   def create?
-    false
+    # false
+    # i disabled restrictions for test purposes and set it to true.
+    true
   end
 
   def new?
@@ -23,7 +25,9 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    # false
+    # i disabled restrictions for test purposes and set it to true.
+    true
   end
 
   def edit?
