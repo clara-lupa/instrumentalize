@@ -1,0 +1,13 @@
+<%= form_tag instruments_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find an instrument"
+  %>
+  <%= text_field_tag :location,
+    params[:location],
+    class: "form-control",
+    placeholder: "Where are you at?"
+  %>
+  <%= submit_tag "Search", class: "button-pink" %>
+<% end %>

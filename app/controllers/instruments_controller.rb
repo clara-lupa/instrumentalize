@@ -2,7 +2,14 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @instruments = policy_scope(Instrument).order(created_at: :desc)
+    # => <ActionController::Parameters {"query"=>"viola", "location"=>"Hermannstr. 48, Berlin", "commit"=>"Search", "controller"=>"instruments", "action"=>"index"} permitted: false>
+    @location = params[:location]
+    if params[:query].present?
+      @instruments = policy_scope(Instrument).where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @instruments = policy_scope(Instrument).order(created_at: :desc)
+    end
+
     @markers = @instruments.geocoded.map do |instrument|
       {
         lat: instrument.latitude,
@@ -17,7 +24,6 @@ class InstrumentsController < ApplicationController
     @instrument = Instrument.find(params[:id])
     authorize @instrument
   end
-
 
   def new
     @instrument = Instrument.new
