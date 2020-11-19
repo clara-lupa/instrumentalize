@@ -1,19 +1,14 @@
-<div class="container">
-  <h1 class="text-color"> All instruments </h1>
-  <ul>
-  <% @instruments.each do |instrument| %>
-  <li>
-    <%= instrument.name %>
-    <%= link_to "Details", instrument_path(instrument) %>
-    <% if policy(instrument).edit? %>
-      <%= link_to "Update", edit_instrument_path(instrument) %>
-      <%= link_to "🗑", instrument_path(instrument), method: :delete %>
-    <% end %>
-  </li>
-  <% end %>
-  </ul>
+<div class="index-container">
 
-  <% if policy(Instrument).create? %>
-  <%= link_to "New instrument", new_instrument_path, class:'button-pink' %>
-  <% end %>
+  <div class="cards-grid">
+    <% @instruments.each do |instrument| %>
+      <%= link_to instrument_path(instrument) do  %>
+        <%= render "card", instrument: instrument %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="map">
+    <img src="https://via.placeholder.com/450C/O https://placeholder.com/">
+  </div>
 </div>
