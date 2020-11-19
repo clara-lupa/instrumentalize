@@ -1,13 +1,12 @@
 <div class="container">
   <h1>Add a new instrument</h1>
-
-  <% if policy(Instrument).create? %>
-    <%= simple_form_for @instrument do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :price_per_day %>
-      <%= f.input :photo, as: :file %>
-      <%= f.submit class: 'button-pink' %>
-    <% end %>
+<% if policy(Instrument).create? %>
+  <%= simple_form_for @instrument do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price_per_day %>
+    <%= f.input :address, input_html: { class: 'address-input' } %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit class: 'button-pink' %>
   <% end %>
 </div>
