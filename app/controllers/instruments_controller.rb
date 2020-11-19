@@ -17,6 +17,7 @@ class InstrumentsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { instrument: instrument })
       }
     end
+
     @instruments = @instruments.sort_by{ |instrument| instrument.distance(@location) }
     console
   end
