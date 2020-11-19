@@ -5,6 +5,7 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :price_per_day %>
+    <%= f.input :address, input_html: { class: 'address-input' } %>
     <%= f.input :photo, as: :file %>
     <%= f.submit class:'button-pink' %>
   <% end %>

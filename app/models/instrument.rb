@@ -13,6 +13,6 @@ class Instrument < ApplicationRecord
 
   def distance(location)
     # returns distance in km, argument should be an address string
-    distance_to(Geocoder.search(location).first.coordinates).round(3)
+    distance_to(Geocoder.search(location).first.coordinates).round(3) if location
   end
 end
