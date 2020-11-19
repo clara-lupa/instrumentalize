@@ -14,7 +14,7 @@ class RentalsController < ApplicationController
     @rental.end_date = params[:rental][:end_date]
     authorize @rental
     if @rental.save
-      redirect_to instruments_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -23,7 +23,7 @@ class RentalsController < ApplicationController
   def edit
     @instrument = Instrument.find(params[:instrument_id])
     @rental = Rental.find(params[:id])
-    authorize @rental    
+    authorize @rental
   end
 
   def update

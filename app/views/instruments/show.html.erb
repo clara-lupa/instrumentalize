@@ -1,17 +1,61 @@
-<div class="container">
-  <h1>Instrument Details</h1>
+<% if false %>
+<div class="container container-instrument">
+  <div class="d-flex flex-lg-row flex-sm-column">
     <% if @instrument.photo.attached? %>
       <%= cl_image_tag @instrument.photo.key, height: 150, width: 150, crop: :fill %>
     <% end %>
-  <h2><%= @instrument.name %></h2>
-  <p><%= @instrument.description %></p>
-  <p>price per day: <%= @instrument.price_per_day %>€</p>
-  <p>owner: <%= @instrument.user.email %></p>
-  <% if current_user == @instrument.user %>
-    <%= link_to "edit this instrument", edit_instrument_path(@instrument), class:'button-pink' %>
-  <% else %>
-    <%= link_to "rent this instrument", new_instrument_rental_path(@instrument), class:'button-pink' %>
-  <% end %>
-  <%= link_to "all instruments", instruments_path, class:'button-pink' %>
+    <div class="instrument-details">
+      <h2 class="instrument-header"><%= @instrument.name %></h2>
+      <p class="instrument-description"><%= @instrument.description %></p>
+      <p>price per day: <%= @instrument.price_per_day %>€</p>
+      <% if current_user == @instrument.user %>
+        <p><%= link_to "edit this instrument", edit_instrument_path(@instrument), class:'button-pink button-margin' %></p>
+      <% else %>
+        <p><%= @instrument.user.email %></p>
+      <% end %>
+    </div>
+<% end %>
+
+<div class="container instrument-container">
+  <div class="d-flex flex-lg-row flex-sm-column align-self-stretch align-items-center justify-content-center flex-row">
+
+<div class="card-instrument">
+  <div class="instrument-image">
+   <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"  />
+  </div>
+  <div class="card-instrument-infos">
+    <div>
+      <h2><%= @instrument.name.capitalize %></h2>
+      <p>Distance: *km</p>
+    </div>
+    <p class="card-instrument-infos">
+      <% if policy(@instrument).edit? %>
+        <%= link_to "Update", edit_instrument_path(instrument) %> |
+        <%= link_to "Remove", instrument_path(instrument), method: :delete %>
+      <% else %>
+          <p>Rate: €<%= @instrument.price_per_day %></p>
+      <% end %>
+    </p>
+    <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1601888580/sna5wlbfxgfmevyvsw2a.jpg" alt="Magdalena Barthofer" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+    <div class="instrument-description d-flex flex-column"><%= @instrument.description %>
+      <% if current_user == @instrument.user %>
+        <p><%= link_to "edit this instrument", edit_instrument_path(@instrument), class:'button-pink' %></p>
+      <% else %>
+        <%= mail_to @instrument.user.email, "Contact Owner", class:'button-pink' %>
+      <% end %>
+    </div>
+
+    <div class="instrument-form">
+      <%= simple_form_for [@instrument, @rental] do |r| %>
+      <%= r.input :start_date, as: :date, html5: true  %>
+      <%= r.input :end_date, as: :date, html5: true %>
+      <%= r.button :submit, 'Rent me!', class:'button-pink' %>
+      <% end %>
+    </div>
+
+  </div>
+  <%= link_to "back to search", root_path, class:'button-pink' %>
 </div>
 
