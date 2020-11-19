@@ -1,26 +1,58 @@
+
 <div class="container">
   <h1>Dashboard</h1>
-
-  <p>Logged in as <%= @user.email %></p>
-  <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
   <h2>My instruments</h2>
-
-  <ul>
+  <div class="d-flex">
     <% @instruments.each do |instrument| %>
-      <li> <%= instrument.name %> <%= link_to "Details" , instrument_path(instrument) %>
-        <%= link_to "Edit", edit_instrument_path(instrument) %>
-      </li>
+      <div class="col-4">
+        <%= link_to instrument_path(instrument) do  %>
+          <%= render "instruments/card", instrument: instrument %>
+        <% end %>
+      </div>
     <% end %>
-  </ul>
-
-
-  <h2>My rented instruments</h2>
-
-  <ul>
-    <% @rentals_as_renter.each do |rental| %>
-      <li><%= rental.instrument.name %>, from <%= rental.start_date %> until <%= rental.end_date %></li>
-    <% end %>
-  </ul>
+  </div>
 </div>
+
+
+<div class="container">
+  <h2>My rentals</h2>
+
+  <% @rentals_as_renter.each do |rental| %>
+      <div class="col-4">
+        <%= link_to instrument_path(instrument) do  %>
+          <%= render "instruments/card", instrument: instrument %>
+        <% end %>
+      </div>
+    <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
