@@ -74,7 +74,7 @@ instruments.each do |instrument|
     name: instrument[:name],
     description: instrument[:description],
     price_per_day: instrument[:price_per_day],
-    address: "#{STREETS.sample} #{rand(60)}, Berlin, Germany"
+    address: "#{STREETS.sample} #{rand(60)}, Berlin, Germany",
     user: users.sample)
   i.photo.attach(io:URI.open(instrument[:photo]), filename:"file.jpg")
   i.save
