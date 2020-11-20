@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 2020_11_19_110134) do
   end
 
   create_table "rentals", force: :cascade do |t|
-    t.date "start"
-    t.date "end"
+    t.date "start_date"
+    t.date "end_date"
     t.bigint "user_id", null: false
     t.bigint "instrument_id", null: false
     t.datetime "created_at", precision: 6, null: false

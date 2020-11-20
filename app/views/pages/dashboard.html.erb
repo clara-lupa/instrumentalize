@@ -3,12 +3,14 @@
   <h1>Dashboard</h1>
   <h2>My instruments</h2>
   <div class="d-flex">
-    <% @instruments.each do |instrument| %>
-      <div class="col-4">
-        <%= link_to instrument_path(instrument) do  %>
-          <%= render "instruments/card", instrument: instrument %>
-        <% end %>
-      </div>
+    <% if @instruments.length > 0 %>
+      <% @instruments.each do |instrument| %>
+        <div class="col-4">
+          <%= link_to instrument_path(instrument) do  %>
+            <%= render "instruments/card", instrument: instrument %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
@@ -19,12 +21,13 @@
 
   <% @rentals_as_renter.each do |rental| %>
       <div class="col-4">
-        <%= link_to instrument_path(instrument) do  %>
-          <%= render "instruments/card", instrument: instrument %>
+        <%= link_to my_rentals_path(rental) do  %>
+          <%= render "instruments/card", instrument: rental.instrument %>
         <% end %>
       </div>
     <% end %>
 </div>
+
 
 
 
