@@ -2,6 +2,7 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @user = current_user
     @location = params[:location]
     if params[:query].present?
       @instruments = policy_scope(Instrument).where("name ILIKE ?", "%#{params[:query]}%")
@@ -23,6 +24,7 @@ class InstrumentsController < ApplicationController
 
   def show
     @rental = Rental.new
+    @user = current_user
     @instrument = Instrument.find(params[:id])
 #following line is just for tests and has to be replaced
     @location = "Berlin"
@@ -30,11 +32,13 @@ class InstrumentsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @instrument = Instrument.new
     authorize @instrument
   end
 
   def create
+    @user = current_user
     @instrument = Instrument.new(instrument_params)
     @instrument.user = current_user
     authorize @instrument
@@ -46,11 +50,13 @@ class InstrumentsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @instrument = Instrument.find(params[:id])
     authorize @instrument
   end
 
   def update
+    @user = current_user
     @instrument = Instrument.find(params[:id])
     authorize @instrument
     @instrument.update(instrument_params)
@@ -58,6 +64,7 @@ class InstrumentsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @instrument = Instrument.find(params[:id])
     @instrument.destroy
     redirect_to instruments_path

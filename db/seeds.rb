@@ -83,6 +83,7 @@ instruments.each do |instrument|
     # user: users.sample --> we dont have the array anymore so we have to do it differently here:
     user: User.all.sample
     )
+
   i.photo.attach(io:URI.open(instrument[:photo]), filename:"file.jpg")
   i.save
 end
