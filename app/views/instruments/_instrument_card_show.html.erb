@@ -1,0 +1,32 @@
+<!-- this will most likely not be used anymore
+ -->      <div class="instrument-info w-50">
+
+        <div class="row justify-content-center">
+          <div class="col col-12 col-sm-12 col-md-12 col-lg-12">
+            <% if instrument.photo.attached? %>
+              <div class="instrument-image">
+                <%= cl_image_tag instrument.photo.key, width: 230, height: 153, crop: :fill %>
+              </div>
+            <% else %>
+              <div class="instrument-image">
+                <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" />
+              </div>
+            <% end %>
+              <h2><%= instrument.name %></h2>
+              <p><%= instrument.description %></p>
+          </div>
+
+          <div class="col-2 col-sm-2 col-md-2 col-lg-2">
+            <div><%= instrument.price_per_day %>€</div>
+          </div>
+
+          <div class="col-10 col-sm-10 col-md-10 col-lg-10">
+            <% if current_user == instrument.user %>
+              <%= link_to "edit this instrument", edit_instrument_path(instrument), class:'button-pink button-instrument-card' %>
+            <% else %>
+              <%= mail_to instrument.user.email, 'Contact Owner', class:'button-pink button-instrument-card' %>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
