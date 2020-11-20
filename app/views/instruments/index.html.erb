@@ -1,9 +1,10 @@
 <div class="index-container">
-
-  <div class="cards-grid">
+<!--   here should be the search form also somewhere, right? maybe it the navbar?
+ -->
+ <div class="cards-grid">
     <% @instruments.each do |instrument| %>
       <%= link_to instrument_path(instrument) do  %>
-        <%= render "card", instrument: instrument %>
+        <%= render "card", instrument: instrument, location: @location %>
       <% end %>
     <% end %>
   </div>

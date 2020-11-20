@@ -12,8 +12,9 @@ PASSWORD = "123456"
 INSTRUMENTS = %w[guitar double-base e-base trumpet violin viola clarinet]
 STREETS =["Hermannstrasse", "Kienitzer Strasse", "Karl-Marx-Strasse", "Sonnenallee", "Nogatstrasse"]
 
-User.destroy_all
+Rental.destroy_all
 Instrument.destroy_all
+User.destroy_all
 
 puts "creating a test user to log in"
 User.create(email: "test@test.com", password: PASSWORD)
