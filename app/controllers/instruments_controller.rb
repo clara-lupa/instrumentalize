@@ -22,6 +22,7 @@ class InstrumentsController < ApplicationController
   end
 
   def show
+    @rental = Rental.new
     @instrument = Instrument.find(params[:id])
     authorize @instrument
   end

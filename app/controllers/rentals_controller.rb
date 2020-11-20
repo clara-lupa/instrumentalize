@@ -23,7 +23,7 @@ class RentalsController < ApplicationController
   def edit
     @instrument = Instrument.find(params[:instrument_id])
     @rental = Rental.find(params[:id])
-    authorize @rental    
+    authorize @rental
   end
 
   def update
