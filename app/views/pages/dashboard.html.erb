@@ -1,31 +1,39 @@
 
 <div class="container">
   <h1>Dashboard</h1>
-  <h2>My instruments</h2>
-  <div class="d-flex">
-    <% if @instruments.length > 0 %>
-      <% @instruments.each do |instrument| %>
-        <div class="col-4">
-          <%= link_to instrument_path(instrument) do  %>
-            <%= render "instruments/card", instrument: instrument %>
+  <div class="dashboard-section">
+    <h2>My instruments</h2>
+
+      <% if @instruments.length > 0 %>
+        <div class="cards-grid-dashboard">
+          <% @instruments.each do |instrument| %>
+            <div>
+              <%= link_to instrument_path(instrument) do  %>
+                <%= render "instruments/card", instrument: instrument %>
+              <% end %>
+            </div>
           <% end %>
         </div>
+      <% else %>
+        <p>You are not offering any instruments yet.</p>
       <% end %>
-    <% end %>
   </div>
-</div>
 
-
-<div class="container">
-  <h2>My rentals</h2>
-
-  <% @rentals_as_renter.each do |rental| %>
-      <div class="col-4">
-        <%= link_to my_rentals_path(rental) do  %>
-          <%= render "instruments/card", instrument: rental.instrument %>
+  <div class="dashboard-section">
+    <h2>My rentals</h2>
+    <% if @rentals_as_renter.length > 0 %>
+      <% @rentals_as_renter.each do |rental| %>
+          <div class="col-4">
+            <%= link_to my_rentals_path(rental) do  %>
+              <%= render "instruments/card", instrument: rental.instrument %>
+            <% end %>
+          </div>
         <% end %>
-      </div>
+    <% else %>
+      <p>You don't have any rentals yet.</p>
     <% end %>
+
+  </div>
 </div>
 
 
