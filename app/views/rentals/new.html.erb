@@ -1,9 +1,8 @@
-<div class="container"></div>
-  <%= simple_form_for [@instrument, @rental]  do |r| %>
-  <%#= r.input :start_date, as: :date, html5: true  %>
-  <%#= r.input :end_date, as: :date, html5: true %>
-  <%= r.input :start_date %>
-  <%= r.input :end_date %>
+
+<div class="container">
+  <%= simple_form_for [@instrument, @rental] do |r| %>
+  <%= r.input :start_date, as: :date, html5: true  %>
+  <%= r.input :end_date, as: :date, html5: true %>
   <%= r.submit %>
   <% end %>
 </div>
