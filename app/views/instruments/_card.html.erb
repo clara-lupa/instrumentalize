@@ -1,6 +1,10 @@
 
 <div class="card-instrument">
-  <%= cl_image_tag instrument.photo.key %>
+  <% if instrument.photo.present? %>
+    <%= cl_image_tag instrument.photo.key %>
+  <% else %>
+    <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
+  <% end %>
   <div class="card-instrument-infos">
     <div>
       <h2><%= instrument.name.capitalize %></h2>
@@ -16,7 +20,11 @@
           <p>Rate: €<%= instrument.price_per_day %></p>
       <% end %>
     </p>
-    <%= cl_image_tag instrument.user.photo.key, class:"avatar-bordered" %>
+    <% if instrument.user.photo.present? %>
+      <%= cl_image_tag instrument.user.photo.key, class:"avatar-bordered" %>
+    <% else %>
+      <img src="https://images.unsplash.com/photo-1484069560501-87d72b0c3669?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="avatar-bordered"/>
+    <% end %>
   </div>
 </div>
 
