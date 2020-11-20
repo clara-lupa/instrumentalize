@@ -19,7 +19,7 @@ class RentalsController < ApplicationController
     @rental.end_date = params[:rental][:end_date]
     authorize @rental
     if @rental.save
-      redirect_to instruments_path
+      redirect_to dashboard_path
     else
       render :new
     end

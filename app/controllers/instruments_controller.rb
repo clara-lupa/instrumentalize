@@ -44,7 +44,7 @@ class InstrumentsController < ApplicationController
     @instrument.user = current_user
     authorize @instrument
     if @instrument.save
-      redirect_to instrument_path(@instrument)
+      redirect_to dashboard_path
     else
       render :new
     end
