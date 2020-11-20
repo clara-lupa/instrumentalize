@@ -4,7 +4,7 @@
   <div class="card-instrument-infos">
     <div>
       <h2><%= instrument.name.capitalize %></h2>
-      <% if location %>
+      <% if @location %>
         <p>Distance: <%= instrument.distance(location).round(1) %>km</p>
       <% end %>
     </div>
