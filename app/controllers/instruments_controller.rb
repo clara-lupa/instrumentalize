@@ -18,6 +18,7 @@ class InstrumentsController < ApplicationController
     end
 
     @instruments = @instruments.sort_by{ |instrument| instrument.distance(@location) }
+    @user = current_user
   end
 
   def show
