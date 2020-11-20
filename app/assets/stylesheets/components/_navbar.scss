@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $paradise-pink;
-  opacity: .7;
+  opacity: 1;
   height: 66px;
 }
 
@@ -11,4 +11,12 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+a.nav-link {
+  color: $gainsboro !important;
+
+}
+h5.logo {
+  color: $gainsboro !important;
 }
