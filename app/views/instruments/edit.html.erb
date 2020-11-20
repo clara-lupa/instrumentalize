@@ -1,11 +1,13 @@
-<h1>Edit Instrument</h1>
-
-<% if policy(@instrument).edit? %>
-  <%= simple_form_for @instrument do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :price_per_day %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit class:'button-pink' %>
+<div class="container">
+  <h1>Edit Instrument</h1>
+  <% if policy(@instrument).edit? %>
+    <%= simple_form_for @instrument do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price_per_day %>
+      <%= f.input :address, input_html: { class: 'address-input' } %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit class:'button-pink' %>
+    <% end %>
   <% end %>
-<% end %>
+</div>

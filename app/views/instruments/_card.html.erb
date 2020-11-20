@@ -4,7 +4,9 @@
   <div class="card-instrument-infos">
     <div>
       <h2><%= instrument.name.capitalize %></h2>
-      <p>Distance: *km</p>
+      <% if location %>
+        <p>Distance: <%= instrument.distance(location).round(1) %>km</p>
+      <% end %>
     </div>
     <p class="card-instrument-infos">
       <% if policy(instrument).edit? %>

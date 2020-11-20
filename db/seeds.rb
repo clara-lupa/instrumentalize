@@ -6,12 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 require 'open-uri'
 
-User.destroy_all
-Instrument.destroy_all
 
-users = []
+STREETS =["Hermannstrasse", "Kienitzer Strasse", "Karl-Marx-Strasse", "Sonnenallee", "Nogatstrasse"]
+
+
+Rental.destroy_all
+Instrument.destroy_all
+User.destroy_all
+
+users = [] #are you using this array anywhere in your code?
 clara = User.new(email: 'clara@music.com', password: '123456')
 clara.photo.attach(io:URI.open("https://avatars3.githubusercontent.com/u/71439281?v=4"), filename:"clara.jpg")
 clara.save
@@ -68,12 +74,12 @@ instruments.each do |instrument|
     name: instrument[:name],
     description: instrument[:description],
     price_per_day: instrument[:price_per_day],
+    address: "#{STREETS.sample} #{rand(60)}, Berlin, Germany"
     user: users.sample)
   i.photo.attach(io:URI.open(instrument[:photo]), filename:"file.jpg")
   i.save
 end
-
-  puts 'Seeds finished!'
+puts 'Seeds finished!'
 
 
 

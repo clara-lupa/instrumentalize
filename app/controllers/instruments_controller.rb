@@ -2,7 +2,22 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @instruments = policy_scope(Instrument).order(created_at: :desc)
+    @location = params[:location]
+    if params[:query].present?
+      @instruments = policy_scope(Instrument).where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @instruments = policy_scope(Instrument).order(created_at: :desc)
+    end
+
+    @markers = @instruments.geocoded.map do |instrument|
+      {
+        lat: instrument.latitude,
+        lng: instrument.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { instrument: instrument })
+      }
+    end
+
+    @instruments = @instruments.sort_by{ |instrument| instrument.distance(@location) }
     @user = current_user
   end
 
@@ -10,7 +25,6 @@ class InstrumentsController < ApplicationController
     @instrument = Instrument.find(params[:id])
     authorize @instrument
   end
-
 
   def new
     @instrument = Instrument.new
@@ -50,6 +64,6 @@ class InstrumentsController < ApplicationController
   private
 
   def instrument_params
-    params.require(:instrument).permit(:name, :description, :price_per_day, :photo)
+    params.require(:instrument).permit(:name, :description, :price_per_day, :address, :photo)
   end
 end

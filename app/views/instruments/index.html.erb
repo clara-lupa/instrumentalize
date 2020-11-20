@@ -1,14 +1,20 @@
 <div class="index-container">
-
-  <div class="cards-grid">
+<!--   here should be the search form also somewhere, right? maybe it the navbar?
+ -->
+ <div class="cards-grid">
     <% @instruments.each do |instrument| %>
       <%= link_to instrument_path(instrument) do  %>
-        <%= render "card", instrument: instrument %>
+        <%= render "card", instrument: instrument, location: @location %>
       <% end %>
     <% end %>
   </div>
 
-  <div id="map">
-    <img src="https://via.placeholder.com/450C/O https://placeholder.com/">
+
+  <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
   </div>
+
 </div>
