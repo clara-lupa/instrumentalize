@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
-    @instruments = policy_scope(Instrument).where(user: current_user)
+    @instruments = @user.instruments
     @rentals_as_renter = @user.rentals
     # implement also for rentals as owner?
   end

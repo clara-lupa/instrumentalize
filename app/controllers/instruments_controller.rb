@@ -68,7 +68,7 @@ class InstrumentsController < ApplicationController
     @user = current_user
     @instrument = Instrument.find(params[:id])
     @instrument.destroy
-    redirect_to instruments_path
+    redirect_to dashboard_path
     authorize @instrument
   end
 
