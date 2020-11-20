@@ -3,6 +3,7 @@ class InstrumentsController < ApplicationController
 
   def index
     @instruments = policy_scope(Instrument).order(created_at: :desc)
+    @user = current_user
   end
 
   def show

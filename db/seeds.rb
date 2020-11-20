@@ -54,7 +54,7 @@ instruments = [
     name: "amp", description: "Totally amped for your gig!", price_per_day: "20", photo:"https://images.unsplash.com/photo-1546518449-3826f84350e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
   },
   {
-    name: "keyboard", description: "The keys for your next gig.", price_per_day: "22", photo:"https://images.unsplash.com/photo-1598653222000-6b7b7a552625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+    name: "keyboard", description: "The keys for your next show.", price_per_day: "22", photo:"https://images.unsplash.com/photo-1598653222000-6b7b7a552625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
   },
   {
     name: "ukelele", description: "Aloha, hipster!", price_per_day: "8", photo:"https://images.unsplash.com/photo-1541447554742-4b7eff548fe1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"

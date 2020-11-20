@@ -14,7 +14,7 @@
           <p>Rate: €<%= instrument.price_per_day %></p>
       <% end %>
     </p>
-    <%= cl_image_tag user.photo.key, class:"avatar-bordered" %>
+    <%= cl_image_tag instrument.user.photo.key, class:"avatar-bordered" %>
   </div>
 </div>
 
