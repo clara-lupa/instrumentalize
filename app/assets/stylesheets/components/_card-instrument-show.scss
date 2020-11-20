@@ -8,7 +8,7 @@
   position: relative;
 }
 
-.instrument-image {
+.instrument-image > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
