@@ -1,4 +1,9 @@
 class RentalsController < ApplicationController
+
+  def my_rentals
+    @rentals = Rental.where(user: current_user)
+  end
+
   def new
     @rental = Rental.new
     @instrument = Instrument.find(params[:instrument_id])
@@ -23,7 +28,7 @@ class RentalsController < ApplicationController
   def edit
     @instrument = Instrument.find(params[:instrument_id])
     @rental = Rental.find(params[:id])
-    authorize @rental    
+    authorize @rental
   end
 
   def update

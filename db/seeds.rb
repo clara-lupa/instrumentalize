@@ -17,7 +17,8 @@ Rental.destroy_all
 Instrument.destroy_all
 User.destroy_all
 
-users = [] #are you using this array anywhere in your code?
+puts "Starting to seed, creating users"
+# users = []
 clara = User.new(email: 'clara@music.com', password: '123456')
 clara.photo.attach(io:URI.open("https://avatars3.githubusercontent.com/u/71439281?v=4"), filename:"clara.jpg")
 clara.save
@@ -30,9 +31,12 @@ igor.save
 dan = User.new(email: 'dan@music.com', password: '123456')
 dan.photo.attach(io:URI.open("https://avatars1.githubusercontent.com/u/71282045?v=4"), filename:"dan.jpg")
 dan.save
-[clara, magda, igor, dan].each { |member| users << member }
+# [clara, magda, igor, dan].each { |member| users << member }
+# the array with the names is exactly the same as the users array you are creating
+# users = [clara, magda, igor, dan] would do the same as your loop ;-)
+# but we dont need the array at all because we can just use User.all instead (it's exactly the same because we have destroyed any potentially remaining users from before in line 18)
 
-
+puts "finished creating userss"
 
 instruments = [
   {
@@ -68,14 +72,18 @@ instruments = [
 
 ]
 
+puts "Creating instruments"
 
 instruments.each do |instrument|
   i = Instrument.new(
     name: instrument[:name],
     description: instrument[:description],
     price_per_day: instrument[:price_per_day],
-    address: "#{STREETS.sample} #{rand(60)}, Berlin, Germany"
-    user: users.sample)
+    address: "#{STREETS.sample} #{rand(60)}, Berlin, Germany",
+    # user: users.sample --> we dont have the array anymore so we have to do it differently here:
+    user: User.all.sample
+    )
+
   i.photo.attach(io:URI.open(instrument[:photo]), filename:"file.jpg")
   i.save
 end

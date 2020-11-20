@@ -1,0 +1,7 @@
+<h2>My rented instruments</h2>
+
+  <ul>
+    <% @rentals.each do |rental| %>
+      <li><%= rental.instrument.name %>, from <%= rental.start_date %> until <%= rental.end_date %></li>
+    <% end %>
+  </ul>
