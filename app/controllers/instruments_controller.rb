@@ -23,8 +23,11 @@ class InstrumentsController < ApplicationController
   end
 
   def show
+    @rental = Rental.new
     @user = current_user
     @instrument = Instrument.find(params[:id])
+#following line is just for tests and has to be replaced
+    @location = "Berlin"
     authorize @instrument
   end
 

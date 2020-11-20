@@ -1,0 +1,53 @@
+
+.instrument-row {
+  color: $gainsboro;
+  margin-top: 32px;
+
+}
+
+.date {
+  color: $myrtle-green;
+}
+
+.instrument-show {
+  width: 50%;
+  margin: 0 auto;
+  padding: 32px;
+}
+.instrument-image > img, .instrument-image {
+  width: 230px;
+  height: auto;
+  margin: 0 auto !important;
+}
+
+.instrument-image > img {
+  padding-bottom: 24px;
+}
+
+.instrument-details {
+  margin: 24px 0px 24px 0px;
+}
+.instrument-info, {
+  background-color: rgba(33, 37, 41, 0.97);
+  margin-top: 24px;
+  border-radius: 5px;
+  color: $gainsboro;
+  height: 100%;
+  padding: 16px 16px 24px 16px;
+}
+.instrument-rental {
+  margin-top: 24px;
+  border-radius: 5px;
+  color: $gainsboro;
+  height: 100%;
+  padding: 16px 16px 24px 16px;
+}
+
+
+.instrument-rental {
+  margin-top: 24px;
+}
+
+.back-button {
+  margin: 20px;
+}

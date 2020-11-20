@@ -1,17 +1,17 @@
-<div class="container">
-  <h1>Instrument Details</h1>
-    <% if @instrument.photo.attached? %>
-      <%= cl_image_tag @instrument.photo.key, height: 150, width: 150, crop: :fill %>
-    <% end %>
-  <h2><%= @instrument.name %></h2>
-  <p><%= @instrument.description %></p>
-  <p>price per day: <%= @instrument.price_per_day %>€</p>
-  <p>owner: <%= @instrument.user.email %></p>
-  <% if current_user == @instrument.user %>
-    <%= link_to "edit this instrument", edit_instrument_path(@instrument), class:'button-pink' %>
-  <% else %>
-    <%= link_to "rent this instrument", new_instrument_rental_path(@instrument), class:'button-pink' %>
-  <% end %>
-  <%= link_to "all instruments", instruments_path, class:'button-pink' %>
+<div class="instrument-show">
+  <div class="d-flex flex-column flex-sm-column flex-md-row flex-lg-row flex-xl-row align-items-baseline justify-content-around">
+    <%= render "card_show", instrument: @instrument, location: @location %>
+
+
+    <div class="instrument-rental flex-shrink-1 ">
+      <%= simple_form_for [@instrument, @rental] do |r| %>
+        <%= r.input :start_date, as: :date, html5: true  %>
+        <%= r.input :end_date, as: :date, html5: true %>
+        <%= r.button :submit, 'Rent me!', class:'button-pink'%>
+      <% end %>
+    </div>
+
+  </div>
 </div>
+
 
